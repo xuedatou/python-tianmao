@@ -47,7 +47,8 @@ def getimge(url, filepath):
 
 
 def getCommodityComments(url):
-    url = 'https://rate.tmall.com/list_detail_rate.htm?itemId=599318528552&spuId=1145879902&sellerId=2002722824&order=3&currentPage=1'
+    itemId = '599318528552'
+    url = 'https://rate.tmall.com/list_detail_rate.htm?itemId=' + itemId + '&spuId=1145879902&sellerId=2002722824&order=3&currentPage=1'
     if url[url.find('itemId=') + 14] != '&':
         id = url[url.find('itemId=') + 3:url.find('itemId=') + 15]
     else:

@@ -47,21 +47,23 @@ def getimge(url, filepath):
 
 
 def getCommodityComments(url):
-    if url[url.find('id=') + 14] != '&':
-        id = url[url.find('id=') + 3:url.find('id=') + 15]
+    url = 'https://rate.tmall.com/list_detail_rate.htm?itemId=599318528552&spuId=1145879902&sellerId=2002722824&order=3&currentPage=1'
+    if url[url.find('itemId=') + 14] != '&':
+        id = url[url.find('itemId=') + 3:url.find('itemId=') + 15]
     else:
-        id = url[url.find('id=') + 3:url.find('id=') + 14]
+        id = url[url.find('itemId=') + 3:url.find('itemId=') + 14]
 
     product_dir = os.path.join(pwd, id)
     print(product_dir)
     if not os.path.exists(product_dir):
         os.mkdir(product_dir)
 
-    url = 'https://rate.tmall.com/list_detail_rate.htm?itemId='+id+'&spuId=997779061&sellerId=3434140772&order=3&picture=1&currentPage=1'
+
     session = requests.session()
     session.headers['user-agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36'
-    session.headers['cookie'] = 'cna=EMqUFNOc8QoCAXzKqHpcLCiW; otherx=e%3D1%26p%3D*%26s%3D0%26c%3D0%26f%3D0%26g%3D0%26t%3D0; x=__ll%3D-1%26_ato%3D0; enc=qnf6W0IsyrPvOUZYJKjFHfYnvcJLSo%2Fiwz5t3YS%2FPDu3IirKSjJeUOc2jhDscG%2BIsQ27PMTNzfrjp3uVGwkA9A%3D%3D; lid=xuexindong512; _m_h5_tk=ea5da97ad21862667b096b2cd6c79caf_1550548890552; _m_h5_tk_enc=a24f17f90604ffff16c3474d9847f6a7; uss=""; hng=CN%7Czh-CN%7CCNY%7C156; t=3d167db83257dbfce2ea2a3eef4f9661; uc3=vt3=F8dByEzfjpnLBuWQpyE%3D&id2=UoYWPA6Oi4Vh2g%3D%3D&nk2=G5Ve6f57q2lJEIfIrw%3D%3D&lg2=URm48syIIVrSKA%3D%3D; tracknick=xuexindong512; lgc=xuexindong512; _tb_token_=3ef9538f865e; cookie2=14041820d15a42c648bad4ceeec7774e; l=bBTo4HT4vPUOWJvvBOfNVuI-CC_tiIRb8sPzw4Nw9ICPO_5w5FWCWZZEit8eC3GVa6EyR3o7dQR0B4Ys7yUIh; isg=BICAdM6kyC3bwrRJmbmGWQY4UQ6SoX3cXpUNZ_oRyRssdSGfoht8Y4oDjZ0QRRyr'
+    session.headers['cookie'] = ''
     session.headers['upgrade-insecure-requests'] = '1'
+    session.headers['Referer'] = 'https://detail.tmall.com/item.htm?spm=a221t.1476805.6299412507.50.18836769FO7H38&id=599318528552&scm=1003.1.03175.ITEM_599318528552_428331&acm=03175.1003.1.428331&uuid=7NeaqH15&pos=5&crid=37'
     session.headers['accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
     res = session.get(url)
     jc = json.loads(res.text.strip().strip('jsonp128').strip('()'))
@@ -88,9 +90,16 @@ def getCommodityComments(url):
                 if len(j['pics']) > 0:
                     num = 0
                     for img in j['pics']:
-                        imgurl = 'http:' + str(img)
-                        getimge(imgurl, os.path.join(product_dir, str(count + 1) + '_' + str(num + 1) + '.jpg'))
-                        num = num + 1
+                        try:
+                            imgurl = 'http:' + str(img)
+                            getimge(imgurl, os.path.join(product_dir, str(count + 1) + '_' + str(num + 1) + '.jpg'))
+                            num = num + 1
+                        except:
+                            continue
+
+
+
+
 
             users.append(j['displayUserNick'])
             comments.append(j['rateContent'])

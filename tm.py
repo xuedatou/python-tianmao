@@ -22,7 +22,7 @@ import os
 import requests
 import json
 
-pwd = os.getcwd()
+pwd = "F:\pythonImages"
 
 filterList = [
     '评价方未及时做出评价,系统默认好评!',

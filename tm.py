@@ -47,8 +47,8 @@ def getimge(url, filepath):
 
 
 def getCommodityComments(url):
-    itemId = '40397828935'
-    url = 'https://rate.tmall.com/list_detail_rate.htm?itemId=' + itemId + '&spuId=1145879902&sellerId=2002722824&order=3&currentPage=1'
+    itemId = '562308467814'
+    url = 'https://rate.tmall.com/list_detail_rate.htm?itemId=' + itemId + '&spuId=1145879902&sellerId=2002722824&order=3&picture=1&currentPage=1'
     if url[url.find('itemId=') + 14] != '&':
         id = url[url.find('itemId=') + 3:url.find('itemId=') + 15]
     else:
@@ -61,11 +61,11 @@ def getCommodityComments(url):
 
 
     session = requests.session()
-    session.headers['user-agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36'
-    session.headers['cookie'] = 't=3d167db83257dbfce2ea2a3eef4f9661; cna=EMqUFNOc8QoCAXzKqHpcLCiW; thw=cn; x=e%3D1%26p%3D*%26s%3D0%26c%3D0%26f%3D0%26g%3D0%26t%3D0%26__ll%3D-1%26_ato%3D0; enc=XzKJXnbxrqUiblthrU%2FUZ7wRbRbKDyYfchg%2F%2BMlKRnEfyKDdPuedK2%2F%2BJOfK6%2FLWrzvpTPVzHG84pLOKmEMo3A%3D%3D; hng=CN%7Czh-CN%7CCNY%7C156; UM_distinctid=1679d1bb25224a-0291ea7161bb99-b78173e-240000-1679d1bb253790; cookie2=16deea3cd902aadbbc72495f7d7db326; v=0; _tb_token_=56e1e6003e9e6; _m_h5_tk=703cd31b5f106872fcbcc1a0f48be152_1550486296287; _m_h5_tk_enc=58c30401d94792ef297788498750018c; unb=1781022371; sg=210; _l_g_=Ug%3D%3D; skt=f939b695397c1679; cookie1=VWZ3cOA6VY3E2v3iUB%2FIWxSSpnHxgwZd5gVgcjrhXV4%3D; csg=f11b93b6; uc3=vt3=F8dByEze47UaB2fadOM%3D&id2=UoYWPA6Oi4Vh2g%3D%3D&nk2=G5Ve6f57q2lJEIfIrw%3D%3D&lg2=W5iHLLyFOGW7aA%3D%3D; existShop=MTU1MDQ3NzYxNQ%3D%3D; tracknick=xuexindong512; lgc=xuexindong512; _cc_=UIHiLt3xSw%3D%3D; dnk=xuexindong512; _nk_=xuexindong512; cookie17=UoYWPA6Oi4Vh2g%3D%3D; tg=0; uc1=cookie16=VFC%2FuZ9az08KUQ56dCrZDlbNdA%3D%3D&cookie21=URm48syIYB3rzvI4Dim4&cookie15=U%2BGCWk%2F75gdr5Q%3D%3D&existShop=false&pas=0&cookie14=UoTZ5OSr7O4xKw%3D%3D&tag=8&lng=zh_CN; mt=ci=19_1; x5sec=7b22726174656d616e616765723b32223a226365386662613132636262636236333462396466626266313733666432343135434a505771654d46454a666e775076656a3776686d514561444445334f4445774d6a497a4e7a45374d513d3d227d; whl=-1%260%260%261550478197003; l=bBThf6lgvPUO618LBOCiVuI-CC_OGIRfguPRw5SMi_5Qt_86Z3bOlllXWEJ6Vj5P9XLB40wBaI2t1FNa-ykf.; isg=BIWF-yTddW6Y01FVK4u7N8VPlMF_6iDb246omIfqLLzLHqeQT5A_pT-8KAJNXlGM'
+    session.headers['user-agent'] = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Mobile Safari/537.36'
+    session.headers['cookie'] = 'cna=N1IVFV5q/0gCAd5VatpSBfAy; otherx=e%3D1%26p%3D*%26s%3D0%26c%3D0%26f%3D0%26g%3D0%26t%3D0; x=__ll%3D-1%26_ato%3D0; hng=CN%7Czh-CN%7CCNY%7C156; lid=xuexindong512; enc=cRxD%2FuWRsGVP3EzrwedV%2FInQm44KLmHNE%2FV5M9%2B7cdLiohvYoFNyfiu8%2BrLBGqY6tgnuTiPTx7%2FQZ6YN954%2FkQ%3D%3D; uc1=cookie14=UoTbmVRweSSVPA%3D%3D; t=694f001ec72b65ac70a4c805df354087; tracknick=xuexindong512; _tb_token_=Nr1ilHMGzDHBtyZoacQi; cookie2=56001efdfcf755790240bee4551ad65b; _m_h5_tk=2f7644472f0d07269ade6514a1c0094c_1574445507094; _m_h5_tk_enc=e1ad236784fba5b9122e14af48ed75e3; l=dBP0d-igvoJl1ViLBOCwCuI8LG_9LIRfguPRwCqMi_5N8_LCte_OkdpGMEp6cjWcTqYB40wBaIvtfFiaJy_bXMJA-9cdvdnDBef..; isg=BHt7CbXrolp6NZ-nTBOmhT6JCl8leI7Zn02mDW04VnqyzJqu9aEBIlZK4ionbOfK'
     session.headers['upgrade-insecure-requests'] = '1'
-    session.headers['Referer'] = 'https://detail.tmall.com/item.htm?spm=a221t.1476805.6299412507.50.18836769FO7H38&id=599318528552&scm=1003.1.03175.ITEM_599318528552_428331&acm=03175.1003.1.428331&uuid=7NeaqH15&pos=5&crid=37'
-    session.headers['accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    session.headers['Referer'] = 'https://detail.m.tmall.com/item.htm?id=603859730042&abtest=28&rn=ab0de6c20830b4fc2de0ac787cc459ec&sid=56001efdfcf755790240bee4551ad65b'
+    session.headers['accept'] = '*/*'
     res = session.get(url)
     jc = json.loads(res.text.strip().strip('jsonp128').strip('()'))
     print(jc)
@@ -79,6 +79,7 @@ def getCommodityComments(url):
         res = session.get(url[:-1] + str(page))
         page = page + 1
         jc = json.loads(res.text.strip().strip('jsonp128').strip('()'))
+        print(jc)
         jc = jc['rateDetail']['rateList']
         print(jc)
         for j in jc:
@@ -97,6 +98,18 @@ def getCommodityComments(url):
                             num = num + 1
                         except:
                             continue
+                videoU = j['videoList']
+                print("mp4: "+str(videoU))
+                if len(videoU) > 0:
+                    print("mp4: ")
+                    try:
+                        videourl = 'http:' + str(j['videoList'][0]["cloudVideoUrl"])
+                        print("mp4:  "+videourl)
+
+                        getimge(videourl, os.path.join(product_dir, str(count + 1) + '_' + str(1) + '.mp4'))
+
+                    except:
+                         continue
 
 
 
